@@ -53,7 +53,7 @@ class Examples extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
-			$crud->set_theme('datatables');
+			$crud->set_theme('flexigrid');
 			$crud->set_table('employees');
 			$crud->set_relation('officeCode','offices','city');
 			$crud->display_as('officeCode','Office City');
