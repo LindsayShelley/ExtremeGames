@@ -232,7 +232,7 @@ class  Administrador extends CI_Controller{
     try{
       $crud = new grocery_CRUD();
 
-      $crud->set_theme('twitter-bootstrap');
+      $crud->set_theme('flexigrid');
       $crud->set_table('eg_users');
       $crud->set_subject('Usuarios');
       $crud->set_language("spanish");
