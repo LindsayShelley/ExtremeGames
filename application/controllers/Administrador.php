@@ -227,6 +227,15 @@ class  Administrador extends CI_Controller{
     }
   }
 
+  function encrypt_password($post_array, $primary_key = null)
+      {
+
+  	    $this->load->helper('security');
+  	    $post_array['contraseña'] = do_hash($post_array['contraseña'], 'sha1');
+  	    return $post_array;
+
+      }
+
   public function eg_users()
   {
     try{
@@ -239,6 +248,7 @@ class  Administrador extends CI_Controller{
       $crud->set_relation('nu_rol','eg_roles','nombre');
       $crud->display_as('nu_rol','Tipo de usuario');
       $crud->change_field_type('contraseña','password');
+       $crud->callback_before_insert(array($this,'encrypt_password'));
 
       $crud->required_fields('nombre');
       $crud->required_fields('paterno');
@@ -256,5 +266,7 @@ class  Administrador extends CI_Controller{
       show_error($e->getMessage().' --- '.$e->getTraceAsString());
     }
   }
+
+
 
 }
