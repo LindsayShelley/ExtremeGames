@@ -17,8 +17,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<<<<<<< HEAD
 <body>
    
+=======
+<body
+    <link rel="stylesheet" type="text/css" href="<?php> echo base_url(); ?>css/diseño.css">
+>>>>>>> bc330a360e1468bfca21ad0231891ca757b22d45
     
 <?php foreach ($eg_catalago as $catalago):?>
 
