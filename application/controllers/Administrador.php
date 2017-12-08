@@ -5,11 +5,13 @@ class  Administrador extends CI_Controller{
     parent::costruct();
     $this->load->database();
     $this->load->helper('url');
-
-
-    $this->load->library('grocery_CRUD');
+    $this->load->library(array('session', 'grocery_CRUD'));
   }
   public function index(){
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     $output=(object) array ('output' => '', 'js_files' => array(), 'css_files'=> array());
     $this->cargar_vistas($output);
   }
@@ -20,6 +22,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_consolas()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -42,6 +48,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_catalago()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -68,6 +78,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_horas()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -90,6 +104,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_membresia()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -119,6 +137,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_promociones()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -142,6 +164,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_puntos()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -162,6 +188,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_puntos_horas()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -189,6 +219,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_roles()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -209,6 +243,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_saldos()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -238,6 +276,10 @@ class  Administrador extends CI_Controller{
 
   public function eg_users()
   {
+    if($this->session->userdata('nu_rol') == FALSE || $this->session->userdata('nu_rol') != '1')
+    {
+      redirect(base_url().'login');
+    }
     try{
       $crud = new grocery_CRUD();
 
@@ -248,12 +290,12 @@ class  Administrador extends CI_Controller{
       $crud->set_relation('nu_rol','eg_roles','nombre');
       $crud->display_as('nu_rol','Tipo de usuario');
       $crud->change_field_type('contraseña','password');
-       $crud->callback_before_insert(array($this,'encrypt_password'));
+      $crud->callback_before_insert(array($this,'encrypt_password'));
 
       $crud->required_fields('nombre');
       $crud->required_fields('paterno');
       $crud->required_fields('materno');
-      $crud->required_fields('usario');
+      $crud->required_fields('usuario');
       $crud->required_fields('rol');
 
       $crud->set_field_upload('imagen','assets/uploads/images_promociones');

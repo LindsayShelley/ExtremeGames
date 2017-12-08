@@ -21,10 +21,10 @@ class Login extends CI_Controller
  $this->load->view('login_view',$data);
  break;
  case '1':
- redirect(base_url().'admin');
+ redirect(base_url().'administrador');
  break;
  case '2':
- redirect(base_url().'editor');
+ redirect(base_url().'empleado');
  break;
  case '3':
  redirect(base_url().'suscriptor');
