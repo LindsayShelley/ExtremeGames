@@ -5,6 +5,9 @@
 		<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/960.css" media="screen" />
 		 <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/text.css" media="screen" />
 		 <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/reset.css" media="screen" />
+
+		 <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/login.css" media="screen" />
+
 		 <style type="text/css">
 		 	h1{
 		 		font-size: 22px;
@@ -12,41 +15,48 @@
 		 		margin: 20px 0px;
 		 	}
 		 	#login{
-		 		background: #fefefe;
 		 		min-height: 500px;
 		 	}
 		 	#formulario_login{
-		 		font-size: 14px;
+		 		font-size: 24px;
 		 		border: 8px solid #112233;
 		 	}
+		 	/*estilos en las letras del label*/
 		 	label{
 		 		display: block;
-		 		font-size: 16px;
-		 		color: #333333;
+		 		font-size: 20px;
+		 		color: #ffffff;
 		 		font-weight: bold;
 		 	}
 		 	input[type=text],input[type=password]{
-		 		padding: 10px 6px;
+		 		padding: 10px 10px;
 		 		width: 400px;
 		 	}
+		 	/*Boton verdesito*/
 		 	input[type=submit]{
 		 		padding: 5px 40px;
-		 		background: #61399d;
+		 		background: #2B9801;
 		 		color: #fff;
+		 		border-radius: 12px;
 		 	}
 		 	#campos_login{
 		 		margin: 50px 0px;
 		 	}
 		 	p{
-		 		color: #f00;
-		 		font-weight: bold;
+		 		color: #FF0000;
+		 		font-size: 15px;
 		 	}
 		 </style>
 	</head>
 	<body>
+
+<div id="torch"></div>
+<script src= url('js/jquery.min.js')></script>
+
+
 	<?php
-	$usuario = array('name' => 'usuario', 'placeholder' => 'nombre de usuario');
-	$contraseña = array('name' => 'contraseña',	'placeholder' => 'introduce tu contraseña');
+	$usuario = array('name' => 'usuario', 'placeholder' => 'Nombre_de_usuario');
+	$contraseña = array('name' => 'contraseña',	'placeholder' => 'Introduce_tu_contraseña');
 	$submit = array('name' => 'submit', 'value' => 'Iniciar sesión', 'title' => 'Iniciar sesión');
 	?>
 	<div class="container_12">
@@ -57,7 +67,7 @@
 					<?=form_open(base_url().'login/new_user')?>
 					<label for="usuario">Nombre de usuario:</label>
 					<?=form_input($usuario)?><p><?=form_error('usuario')?></p>
-					<label for="contraseña">Introduce tu contraseña:</label>
+					<label for="contraseña">Contraseña:</label>
 					<?=form_password($contraseña)?><p><?=form_error('contraseña')?></p>
 					<?=form_hidden('token',$token)?>
 					<?=form_submit($submit)?>
@@ -74,5 +84,7 @@
 			</div>
 		</div>
 	</div>
+
+	<script src="js/login.js" "></script>
 	</body>
 </html>
