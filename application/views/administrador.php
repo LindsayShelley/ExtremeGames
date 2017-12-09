@@ -16,6 +16,17 @@ foreach($css_files as $file): ?>
 <body>
 	<div>
 
+		<a href='<?php echo site_url('administrador/eg_catalago')?>'>Catalago</a>  |
+		<a href='<?php echo site_url('administrador/eg_consolas')?>'>Consolas</a>  |
+    <a href='<?php echo site_url('administrador/eg_membresia')?>'>Membresia</a> |
+    <a href='<?php echo site_url('administrador/eg_promociones')?>'>Promociones</a> |
+    <a href='<?php echo site_url('administrador/eg_puntos')?>'>Puntos</a> |
+    <a href='<?php echo site_url('administrador/eg_puntos_horas')?>'>Relacion Puntos x Horas</a> |
+    <a href='<?php echo site_url('administrador/eg_roles')?>'>Roles</a> |
+    <a href='<?php echo site_url('administrador/eg_saldos')?>'>Saldos</a> |
+    <a href='<?php echo site_url('administrador/eg_users')?>'>Usuarios</a> |
+		<a href='<?php echo site_url('login/logout_ci')?>'>Salir</a> 
+
 
 
 	</div>
