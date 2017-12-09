@@ -1,3 +1,6 @@
+
+<?php include('css/css/menu_emple.html'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +16,7 @@ foreach($css_files as $file): ?>
 </head>
 <body>
 	<div>
+
 		<a href='<?php echo site_url('empleado/eg_catalago')?>'>Catalago</a>  |
 		<a href='<?php echo site_url('empleado/eg_consolas')?>'>Consolas</a>  |
     <a href='<?php echo site_url('empleado/eg_membresia')?>'>Membresia</a> |
